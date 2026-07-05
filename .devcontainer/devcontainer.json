@@ -1,0 +1,14 @@
+{
+  "name": "decode-agents-demo",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
+  "postCreateCommand": "printf 'DATABASE_URL=\"file:./dev.db\"\\n' > .env && npm install && npx prisma migrate deploy && npx prisma generate && npx tsx prisma/seed.ts",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": { "label": "App Next.js", "onAutoForward": "openPreview" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["Prisma.prisma", "dbaeumer.vscode-eslint"]
+    }
+  }
+}
