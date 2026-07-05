@@ -1,6 +1,9 @@
 {
   "name": "decode-agents-demo",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": { "version": "latest" }
+  },
   "postCreateCommand": "printf 'DATABASE_URL=\"file:./dev.db\"\\n' > .env && npm install && npx prisma migrate deploy && npx prisma generate && npx tsx prisma/seed.ts",
   "forwardPorts": [3000],
   "portsAttributes": {
