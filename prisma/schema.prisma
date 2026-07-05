@@ -1,0 +1,19 @@
+// Schéma Prisma — démo cours (liste d'agents)
+// Doc : https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Agent {
+  id        Int      @id @default(autoincrement())
+  name      String
+  role      String
+  status    String   @default("idle")
+  createdAt DateTime @default(now())
+}
